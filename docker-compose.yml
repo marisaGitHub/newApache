@@ -1,0 +1,16 @@
+version: "3"
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./conf/Dockerfile
+    ports:
+      - "8181:80"
+    volumes:
+      - ./conf/sri.asir4all.ss.conf:/etc/apache2/sites-available/000-default.conf
+      - ./conf/.htdigest:/etc/.htdigest
+      - ./conf/.htpasswd:/etc/.htpasswd
+      - ./web/servidor.php:/var/www/html/servidor.php
+#      - ./index/index.html:/var/www/html/index.html
+#      - ./web/index.html:/var/www/html/index.html
+
